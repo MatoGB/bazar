@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Bazar<strong>.</strong></div>
+    <nav class="mainnav">
+      <a class="navlink" href="/">← Volver</a>
+    </nav>
+  </header>
+
+  <main class="container narrow">
+    <h1>Login / Register</h1>
+    <form class="authform" onsubmit="return false;">
+      <label>Email
+        <input type="email" placeholder="tu@email.com" required />
+      </label>
+      <label>Contraseña
+        <input type="password" placeholder="••••••••" required />
+      </label>
+      <div class="row">
+        <button class="primary">Ingresar</button>
+        <button class="ghost">Crear cuenta</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

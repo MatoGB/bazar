@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bazar Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Bazar<strong>.</strong></div>
+    <nav class="mainnav">
+      <button data-section="inicio" class="navbtn active">Inicio</button>
+      <button data-section="articulos" class="navbtn">Artículos</button>
+      <button data-section="sobre" class="navbtn">Sobre nosotros</button>
+      <button data-section="perfil" class="navbtn">Perfil</button>
+    </nav>
+    <a class="loginbtn" href="/login">Login / Register</a>
+  </header>
+
+  <main class="container">
+    <!-- INICIO -->
+    <section id="inicio" class="section visible">
+      <h1>Bienvenido al Bazar</h1>
+      <p>Esta es una demo simple para probar hosting en Render.</p>
+    </section>
+
+    <!-- ARTÍCULOS (desde SQLite) -->
+    <section id="articulos" class="section">
+      <h1>Artículos</h1>
+      <div class="grid">
+        {% for p in products %}
+        <article class="card">
+          <h3>{{ p["name"] }}</h3>
+          <p>{{ p["description"] }}</p>
+          <div class="price">$ {{ '%.2f'|format(p["price"]) }}</div>
+          <button class="buy">Agregar</button>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre" class="section">
+      <h1>Sobre nosotros</h1>
+      <p>Somos un bazar ejemplo creado para desplegar en Render.</p>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="perfil" class="section">
+      <h1>Perfil</h1>
+      <p>Para esta demo el perfil es solo una sección estática.</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
